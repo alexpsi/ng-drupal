@@ -4,11 +4,10 @@ ng-drupal:services feature
 # Overview
 
 Drupal feature that installs: 
-1. Services
 
-2. CORS
-
-3. Full path file info
+  1. Services
+  2. CORS
+  3. Full path file info
 
 And then configures a REST endpoint at /api along with a CORS configuration that allow for cross domain communications.
 
