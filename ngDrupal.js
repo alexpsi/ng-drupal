@@ -15,7 +15,7 @@ angular.module('ngDrupal', [])
 
     ngDrupal.setRestPath = function (root, endpoint) {
         
-        Restangular.setBaseUrl('http://beta1.iterativ.tk/api');
+        Restangular.setBaseUrl('HOSTNAME'); //Need to add service configuration
         ngDrupal.SITE_ROOT = root;
         ngDrupal.SERVICES_ENDPOINT = endpoint;
         ngDrupal.REST_PATH = root + endpoint + '/';
