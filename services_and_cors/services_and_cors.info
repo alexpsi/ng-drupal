@@ -1,0 +1,17 @@
+name = Services and CORS
+description = Install Services module, inits an endpoint and sets up CORS for use with ngDrupal.
+core = 7.x
+package = ngDrupal
+version = 7.x-0.1
+project = services_and_cors
+dependencies[] = cors
+dependencies[] = ctools
+dependencies[] = full_url_file_info
+dependencies[] = rest_server
+dependencies[] = services
+dependencies[] = strongarm
+features[ctools][] = services:services:3
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[services_endpoint][] = api
+features[variable][] = cors_domains

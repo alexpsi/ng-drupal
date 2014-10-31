@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Services and CORS feature.
+ */
+
+include_once 'services_and_cors.features.inc';
