@@ -1,11 +1,12 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name recApp.controller:UserCtrl
+ * @ngdoc service
+ * @name ngDrupal
  * @description
- * # UserCtrl
- * Controller of the recApp
+ * # ngDrupal 
+ * Angular service that allows Restangular to connect to a Drupal site utilizing Services 3.5+. 
+ * Provides authentication and file upload methods.
  */
 angular.module('ngDrupal', []) 
 .factory('ngDrupal', function($q, $http, Restangular) {
@@ -29,10 +30,8 @@ angular.module('ngDrupal', [])
         $http({
             url: ngDrupal.SITE_ROOT + 'services/session/token',
             method: 'GET',
-            data: {uid: 3},
             withCredentials: true
         }).success(function(data /*, status, headers, config*/) {
-            //localStorage.setItem('X-CSRF-Token', data);
             $http.defaults.headers.common['X-CSRF-Token'] = data;
             deferred.resolve(data);
         }).error(function(data /*, status, headers, config*/) {
@@ -72,9 +71,8 @@ angular.module('ngDrupal', [])
             withCredentials: true
         })
         .success(function(data /*, status, headers, config */) { 
-            //localStorage.setItem('X-CSRF-Token', '');
             ngDrupal.getCsrfToken().then(function() {
-                //$http.defaults.headers.common['X-CSRF-Token'] = data;
+                $http.defaults.headers.common['X-CSRF-Token'] = '';
                 deferred.resolve(data);
             });
             
