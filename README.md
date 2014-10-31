@@ -7,6 +7,8 @@ Angular service that allows Restangular to connect to a Drupal site utilizing Se
   
   > bower install angular-drupal -S 
   
+At server side, you can provision a new drupal installation by using the [feature branch] (https://github.com/alexpsi/ng-drupal/tree/feature)
+  
   
 
 
