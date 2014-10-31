@@ -1,0 +1,29 @@
+{
+  "name": "ngDrupal",
+  "version": "0.1.0",
+  "homepage": "https://github.com/alexpsi/ngDrupal",
+  "authors": [
+    "Alex Psi <alexpsi256@gmail.com>"
+  ],
+  "description": "Angular service that allows Restangular to connect to a Drupal site utilizing Services 3.5+. Provides authentication and file upload methods.",
+  "main": "ngDrupal.js",
+  "keywords": [
+    "angular",
+    "drupal",
+    "services",
+    "REST",
+    "restangular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.0",
+    "restangular": "~1.4.0"
+  }
+}
