@@ -1,7 +1,7 @@
 {
-  "name": "ngDrupal",
+  "name": "angular-drupal",
   "version": "0.1.0",
-  "homepage": "https://github.com/alexpsi/ngDrupal",
+  "homepage": "https://github.com/alexpsi/angular-drupal",
   "authors": [
     "Alex Psi <alexpsi256@gmail.com>"
   ],
