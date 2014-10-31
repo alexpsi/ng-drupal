@@ -1,10 +1,13 @@
 ng-drupal:services feature
 =========
-# OVerview
+
+# Overview
 
 Drupal feature that installs: 
 1. Services
+
 2. CORS
+
 3. Full path file info
 
 And then configures a REST endpoint at /api along with a CORS configuration that allow for cross domain communications.
@@ -14,8 +17,13 @@ And then configures a REST endpoint at /api along with a CORS configuration that
 Starting from server root dir: 
 
 > drush dl drupal --drupal-project-rename=project-name
+
 > cd project-name
+
 > drush si --db-url="mysql://dbuser:dbpass2localhost/dbname" --site-name=sitename 
+
 > cd sites/all/modules
+
 > git clone --branch feature https://github.com/alexpsi/ng-drupal
+
 > drush en services_and_cors -y
