@@ -14,15 +14,12 @@ And then configures a REST endpoint at /api along with a CORS configuration that
 # Installation
 
 Starting from server root dir: 
+```bash
 
-> drush dl drupal --drupal-project-rename=project-name
-
-> cd project-name
-
-> drush si --db-url="mysql://dbuser:dbpass2localhost/dbname" --site-name=sitename 
-
-> cd sites/all/modules
-
-> git clone --branch feature https://github.com/alexpsi/ng-drupal
-
-> drush en services_and_cors -y
+  drush dl drupal --drupal-project-rename=project-name
+  cd project-name
+  drush si --db-url="mysql://dbuser:dbpass2localhost/dbname" --site-name=sitename 
+  cd sites/all/modules
+  git clone --branch feature https://github.com/alexpsi/ng-drupal
+  drush en services_and_cors -y
+```
