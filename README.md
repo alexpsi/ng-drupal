@@ -60,6 +60,11 @@ Returns current user information
    ngDrupal.systemConnect().then(function(data) {console.log(data);});
 ````
 
+## NodeFactory
+Returns a Restangular object pointing to api/node 
+````
+   var node = ngDrupal.nodeFactory();
+````
 
 
 
