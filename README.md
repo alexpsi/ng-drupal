@@ -1,7 +1,7 @@
 ngDrupal
 ========
 
-(Version 0.1.0 Very very alpha version)
+(Version 0.1.2 Very very alpha version)
 
 Angular service that allows Restangular to connect to a Drupal site utilizing Services 3.5+. Provides authentication and file upload methods.
 
