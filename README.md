@@ -23,3 +23,9 @@ Starting from server root dir:
   drush en services_and_cors -y
 ```
 
+Strongarm doesn't seem to configure cors so put this at CORS configuration:
+
+
+*|<mirror>|POST,GET,PUT,OPTIONS,DELETE|Accept, Content-Type,X-CSRF-Token|true
+
+
