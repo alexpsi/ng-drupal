@@ -38,6 +38,36 @@ And finally inject ngDrupal to your controller
   
 At server side, you can provision a new drupal installation by using the [feature branch] (https://github.com/alexpsi/ng-drupal/tree/feature)
   
-  
+# Usage
+
+All ngDrupal methods return promises. 
+
+## Login
+
+````
+  ngDrupal.login({username: username, password: password}).then(function(data) {console.log(data);});
+````
+
+## Logout
+
+````
+  ngDrupal.logout();
+````
+
+## System connect
+Returns current user information 
+````
+   ngDrupal.systemConnect().then(function(data) {console.log(data);});
+````
+
+## NodeFactory
+Returns a Restangular object pointing to api/node 
+````
+   var node = ngDrupal.nodeFactory();
+````
+
+
+
+
 
 
