@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name recApp.controller:UserCtrl
+ * @name ngDrupal
  * @description
- * # UserCtrl
- * Controller of the recApp
+ * # ngDrupal
+ * Angular service that facilitates connecting Restangular to a Drupal Services REST API
+ *
  */
 
-angular.module('ngDrupal', []) 
+angular.module('ngDrupal', ['restangular']) 
     .provider('ngDrupal', function() {
         // In the provider function, you cannot inject any
         // service or factory. This can only be done at the
@@ -17,10 +18,19 @@ angular.module('ngDrupal', [])
         this.hostname = '';
         this.endpoint = '';
 
+        this.config = function(options) {
+            this.hostname = options.hostname;
+            this.endpoint = options.endpoint;
+        };
+
+
+
+
         this.$get = function($q, $http, Restangular) {
 
             var SITE_ROOT = this.hostname;
             var SERVICES_ENDPOINT = this.endpoint;
+            console.log(SITE_ROOT);
             var REST_PATH = SITE_ROOT + SERVICES_ENDPOINT + '/';
             Restangular.setBaseUrl(REST_PATH);
             Restangular.setDefaultHttpFields({withCredentials: true});
@@ -117,18 +127,62 @@ angular.module('ngDrupal', [])
                 },
 
                 nodeFactory: function() {
-
                   return Restangular.all('node');
+                },
+
+                structureField: function(value, _label) {
+                    // record optional label string or default to "value"
+                    var label = _label || "value";
+
+                    if (isArray(value)) {
+                        var field_array = [];
+                        for (var i= 0, l=value.length; i<l; i++) {
+                          var item = {};
+                          item[label] = value[i];
+
+                          field_array.push(item);
+                        }
+                        return {
+                          und: field_array
+                        };
+                    }
+
+                    if (value instanceof Date) {
+
+                        var obj = {
+                          value: {
+                            date: (value.getMonth()+1)+'/'+value.getDate()+'/'+value.getFullYear()+' - '+value.getHours()+':'+value.getMinutes()+':'+value.getSeconds()
+                          }
+                        };
+
+                        return {
+                          und: [
+                            obj
+                          ]
+                        };
+                    }
+
+                    // field value given with label(s) already built
+                    if (typeof value == "object") {
+                        return {
+                          und: [
+                            value
+                          ]
+                        }
+                    }
+
+
+                    var item = {};
+                    item[label] = value;
+
+                    return {
+                        und: [
+                          item
+                        ]
+                    };
                 }
-
-
-
-
             }
         };
      
-        this.config = function(options) {
-            this.hostname = options.hostname;
-            this.endpoint = options.endpoint;
-        };
+       
 });
